@@ -1,0 +1,28 @@
+{
+  "name": "se2_exam_project_173806",
+  "version": "1.0.0",
+  "description": "Exam Project for Software Engeneering 2 on 15/12/2016",
+  "main": "server/index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "util": "^0.10.3",
+    "utils": "^0.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "./server/index.js",
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DalRiDiego/SE2Lab_Exam_2016_12.git"
+  },
+  "author": "DalRiDiego",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DalRiDiego/SE2Lab_Exam_2016_12/issues"
+  },
+  "homepage": "https://github.com/DalRiDiego/SE2Lab_Exam_2016_12#readme"
+}
