@@ -135,7 +135,39 @@ var insertStudent = function insertStudent(student)
 
 //AGGIUNGERE QUI SOTTO NUOVE FUNZIONI
 
+/**
+  * @brief This function search for all students having a mark less than the mark given
+  * 		NOTE: Students with mark equals to the given mark are NOT included
+  * @param mark
+  * @return a list containing all the students having a mark less than the mark given
+*/
+var getStudentsLessMark = function(mark){
+	var ret = [];
+	for(var i=0 ; i< studentList.length ; i++){
+		var s = studentList[i];
+		if(i != undefined && s.mark < mark){
+			ret.push(s);
+		}
+	}
+	return ret;
+}
 
+/**
+  * @brief This function search for all students having a mark greater than the mark given
+  * 		NOTE: Students with mark equals to the given mark are NOT included
+  * @param mark
+  * @return a list containing all the students having a mark less greater the mark given
+*/
+var getStudentsGreaterMark = function(mark){
+	var ret = [];
+	for(var i=0 ; i< studentList.length ; i++){
+		var s = studentList[i];
+		if(i != undefined && s.mark > mark){
+			ret.push(s);
+		}
+	}
+	return ret;
+}
 
 //export functions
 exports.searchStudentID = searchStudentID; 
@@ -143,4 +175,7 @@ exports.searchStudentSSN = searchStudentSSN;
 exports.deleteStudentID = deleteStudentID; 
 exports.deleteStudentSSN = deleteStudentSSN; 
 exports.insertStudent = insertStudent;  
-exports.getList = getList; 
+exports.getList = getList;
+
+exports.getStudentsLessMark = getStudentsLessMark;
+exports.getStudentsGreaterMark = getStudentsGreaterMark;

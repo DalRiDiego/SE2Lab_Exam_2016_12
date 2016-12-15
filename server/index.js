@@ -267,6 +267,50 @@ app.post('/addStudent', function(request, response)
 
 });
 
+/**
+ * @brief search students with mark greater or less than a number given in tye format '<[number]' or '>[number]'
+ * 	mark: '<6' 		get all the students with the mark less than 6
+ * 	mark: '>5' 		get all the students with the mark greater than 5
+ * @return return all the tudents with mark greater or less than a number
+ */
+app.post('/searchByMark',function(request, response){
+	var headers = {};
+	headers["Access-Control-Allow-Origin"] = "*";
+	headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+	headers["Access-Control-Allow-Credentials"] = false;
+	headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+	headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
+	headers["Content-Type"] = "application/json";
+	
+	var type = undefined;
+	var mark = undefined;
+	
+	//reading the data from the form
+	var tmp = request.body.mark;
+	if(typeof tmp !== 'undefinded' && tmp){
+		if(tmp[0] == '<' || tmp[0] == '>'){
+			type = tmp[0];
+			mark = parseInt(tmp.substring(1));
+		}
+	}
+	
+	if(type != undefined && mark != undefined && mark != NaN){	//if the data recieved is correct
+		var ret;
+		
+		if(type == '<'){//if searching for students with less mark
+			ret = studentManager.getStudentsLessMark(mark);
+		}else{//if searching for students with greater mark
+			ret = studentManager.getStudentsGreaterMark(mark);
+		}
+		
+		response.writeHead(200, headers);
+		response.end(JSON.stringify(ret));
+	}else{	//if the data recieved is incorrect
+		response.writeHead(406, headers);
+		response.end(JSON.stringify("Error parsing the input given, please correct your data and retry"));
+	}
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
