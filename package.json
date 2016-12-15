@@ -2,7 +2,6 @@
   "name": "se2_exam_project_173806",
   "version": "1.0.0",
   "description": "Exam Project for Software Engeneering 2 on 15/12/2016",
-  "main": "server/index.js",
   "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
@@ -12,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "./server/index.js",
+    "start": "node server/index.js",
     "test": "jasmine"
   },
   "repository": {
