@@ -15,7 +15,7 @@ paths:
   /showList:
     get:
       summary: show list of students
-      description: it returns the complete lest of all students in the university
+      description: it returns the complete list of all students in the university
       responses:
         200:
           description: the home page
